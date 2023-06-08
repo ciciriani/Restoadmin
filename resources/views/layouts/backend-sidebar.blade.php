@@ -12,12 +12,25 @@ with font-awesome or any other icon font library -->
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ asset('admin template/index.html') }}" class="nav-link active">
+                    <a href="{{ route('dashboard.index') }}" class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Home</p>
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('user') }}" class="nav-link {{ request()->is('user') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-user-alt"></i>
+                        <p>User</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('category') }}" class="nav-link {{ request()->is('category') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-address-book"></i>
+                        <p>Kategori</p>
+                    </a>
+                </li>
             </ul>
         </li>
     </ul>

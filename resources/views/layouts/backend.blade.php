@@ -160,6 +160,26 @@
                         <i class="fas fa-th-large"></i>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a 
+                        onclick="event.preventDefault();document.getElementById('logout-form').submit()" 
+                        class="nav-link"
+                        href="{{ route('logout') }}"
+                        style="cursor: pointer;"
+                    >
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+
+                    <form 
+                        id="logout-form" 
+                        method="POST" 
+                        class="display-none" 
+                        action="{{ route('logout') }}"
+                    >
+                        @csrf
+
+                    </form>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->

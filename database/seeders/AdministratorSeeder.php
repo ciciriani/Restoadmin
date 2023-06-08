@@ -13,10 +13,10 @@ class AdministratorSeeder extends Seeder
     public function run(): void
     {
         $administrator               = new \App\Models\User();
-        $administrator->name         = 'amanuba';
-        $administrator->email        = 'amanuba@gmail.com';
+        $administrator->name         = 'radip';
+        $administrator->email        = 'radip@gmail.com';
         $administrator->roles        = 'admin';
-        $administrator->password     = bcrypt('amanuba@gmail.com');
+        $administrator->password     = bcrypt('12345678');
         $administrator->save();
         $this->command->info('Data User Berhasil Di Insert !');
     }

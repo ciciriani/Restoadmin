@@ -5,7 +5,7 @@
     <!-- token csrf-->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- css sweetalert-->
-    <link rel="stylesheet" href="{{ asset('sweetalert/src/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('sweetalert/src/sweetalert2.scss') }}">
 @endsection
 
 
@@ -63,7 +63,7 @@
 @endsection
 @section('footerScripts')
     <!-- js sweetalert-->
-    <script src="{{ asset('sweetalert/src/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('sweetalert/src/sweetalert2.js') }}"></script>
 
 
     <script>
