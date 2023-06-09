@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('stock');
             $table->string('slug');
             $table->enum('status', ['Tersedia', 'Tidak Tersedia'])->default('Tersedia');
-            $table->enum('kategori', ['makanan', 'minuman', 'cemilan'])->default('Tersedia');
+            $table->enum('kategori', ['makanan', 'minuman', 'cemilan']);
             $table->timestamps();
         });
     }

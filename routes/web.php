@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FoodsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TablesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,19 @@ Route::middleware('auth')->controller(FoodsController::class)->group(function ()
     Route::post('foods/destroy/selected', 'destroySelected')->name('foods.destroySelected');
 });
 
+Route::middleware('auth')->controller(TablesController::class)->group(function () {
+    Route::get('tables', 'index')->name('tables');
+    Route::post('tables', 'store')->name('tables.store');
+    Route::get('tables/edit', 'edit')->name('tables.edit');
+    Route::post('tables/edit', 'update')->name('tables.update');
+    Route::get('fetchTables', 'fetchTables')->name('tables.fetch');
+    Route::post('tables/destroy', 'destroy')->name('tables.destroy');
+    Route::post('tables/destroy/selected', 'destroySelected')->name('tables.destroySelected');
+});
+
+Route::middleware('auth')->controller(TablesController::class)->group(function () {
+    Route::get('orders', 'index')->name('orders');
+});
 
 //Auth Login
 Route::controller(LoginController::class)->group(function () {

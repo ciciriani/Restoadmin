@@ -16,7 +16,7 @@ class AdministratorSeeder extends Seeder
         $administrator->name         = 'radip';
         $administrator->email        = 'radip@gmail.com';
         $administrator->roles        = 'admin';
-        $administrator->password     = bcrypt('12345678');
+        $administrator->password     = bcrypt('1234');
         $administrator->save();
         $this->command->info('Data User Berhasil Di Insert !');
     }
