@@ -14,11 +14,11 @@
 @endsection
 
 @section('heading') 
-    Halaman Foods
+    History Order
 @endsection
 
 @section('subHeading') 
-    Foods
+    Order
 @endsection
 
 @section('content')
@@ -27,37 +27,57 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row mb-3">
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addModalFoods">
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addModalOrders">
                             <span class="fas fa-plus"></span>
-                            Tambah Kategori
+                            Tambah Order
                         </button>
                     </div>
                     <div class="row">
                         <div class="col md-12 col-sm-12 table-responsive">
-                            <table id="tableFoods" class="table table-bordered">
+                            <table id="tableOrders" class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            <input type="checkbox" id="main_checkbox" name="main_checkbox">
-                                        </th>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>Photo</th>
-                                        <th>Harga</th>
-                                        <th>Stock</th>
-                                        <th>Slug</th>
-                                        <th>Status</th>
-                                        <th>Kategori</th>
-                                        <th>
-                                            Action <br>
-                                            <button class="btn btn-danger btn-sm" id="delAllBtn" type="submit">
-                                                Hapus
-                                            </button>
-                                        </th>
+                                        <th>List Pembelian</th>
+                                        <th>Total Harga</th>
+                                        <th>Tanggal Transaksi</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($orders as $order)
+                                        <tr>
+                                            <td>
+                                                {{ $loop->iteration }}
+                                            </td>
+                                            <td>
+                                                {{ $order->nama_pelanggan }}
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    @foreach ($order->orderDetails as $orderDetail)
+                                                        <li>{{ $orderDetail->food->name }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                {{ $order->total_harga }}
+                                            </td>
+                                            <td>
+                                                {{ $order->created_at }}
+                                            </td>
+                                            <td>
+                                                <a href="orders/destroy/{{ $order->id }}">
+                                                    <button class="btn btn-danger">
+                                                        <span class="fas fa-trash"></span> Hapus Histori
+                                                    </button>
+                                                </a>
 
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -67,17 +87,25 @@
         </div>
     </div>
 
-    @include('backend.foods.addModalFoods')
-    @include('backend.foods.editModalFoods')
+    @include('backend.orders.addModalOrders')
+    @include('backend.orders.editModalOrders')
 @endsection
 
 @section('footerScripts')
+
+    @include('backend.orders.scripts')
     <!-- js sweetalert-->
     <script src="{{ asset('sweetalert/src/sweetalert2.js') }}"></script>
     <script src="{{ asset('datatable/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('datatable/dataTables.bootstrap4.min.js') }}"></script>
 
-    @include('backend.foods.scripts')
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2({
+                multiple: true
+            });
+        });
+    </script>
 
 
 @endsection

@@ -29,11 +29,6 @@
                       <span class="text-danger error-text harga_error"></span>
                   </div>
                   <div class="form-group">
-                      <label for="stock">Stock</label>
-                      <input type="number" name="stock" class="form-control" placeholder="Masukkan stock...">
-                      <span class="text-danger error-text stock_error"></span>
-                  </div>
-                  <div class="form-group">
                       <label for="status">Status</label>
                       <select name="status" class="form-control">
                           <option value="Tersedia">Tersedia</option>

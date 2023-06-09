@@ -30,11 +30,6 @@
                         <span class="text-danger error-text harga_error_edit"></span>
                     </div>
                     <div class="form-group">
-                        <label for="stock">Stock</label>
-                        <input type="number" name="stock" class="form-control" placeholder="Masukkan stock..." id="stock">
-                        <span class="text-danger error-text stock_error_edit"></span>
-                    </div>
-                    <div class="form-group">
                         <label for="status">Status</label>
                         <select name="status" class="form-control" id="status">
                             <option value="Tersedia">Tersedia</option>

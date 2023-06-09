@@ -44,10 +44,6 @@
                         name: 'harga'
                     },
                     {
-                        data: 'stock',
-                        name: 'stock'
-                    },
-                    {
                         data: 'slug',
                         name: 'slug'
                     },
@@ -123,7 +119,6 @@
                     $('#idFoods').val(idFoods);
                     $('#name').val(data.foods.name);
                     $('#harga').val(data.foods.harga);
-                    $('#stock').val(data.foods.stock);
                     $('#status').val(data.foods.status);
                     $('#kategori').val(data.foods.kategori);
                 }

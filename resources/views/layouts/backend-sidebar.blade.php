@@ -33,13 +33,6 @@ with font-awesome or any other icon font library -->
                 </li>
 
                 <li class="nav-item mb-2">
-                    <a href="{{ route('tables') }}" class="nav-link {{ request()->is('tables') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tablet"></i>
-                        <p>Meja</p>
-                    </a>
-                </li>
-
-                <li class="nav-item mb-2">
                     <a href="{{ route('orders') }}" class="nav-link {{ request()->is('orders') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-list"></i>
                         <p>Orders</p>

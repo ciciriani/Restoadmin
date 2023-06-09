@@ -13,7 +13,6 @@ class Foods extends Model
         'name',
         'photo',
         'harga',
-        'stock',
         'slug',
         'status',
         'kategori',

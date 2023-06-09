@@ -14,17 +14,6 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pelanggan');
-            $table->unsignedBigInteger('id_meja');
-            $table->foreign('id_meja')->references('id')
-                ->on('tables')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-            //makanan yang dipesan
-            $table->unsignedBigInteger('id_food');
-            $table->foreign('id_food')->references('id')
-                ->on('food')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
             $table->integer('total_harga');
             $table->timestamps();
         });

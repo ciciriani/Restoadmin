@@ -48,7 +48,6 @@ class FoodsController extends Controller
             'name' => 'required | string',
             'photo' => 'required | image | mimes:jpeg,png,jpg',
             'harga' => 'required | integer',
-            'stock' => 'required | integer',
             'status' => 'required | string',
             'kategori' => 'required | string',
         ], [
@@ -59,8 +58,6 @@ class FoodsController extends Controller
             'photo.mimes' => 'Photo harus berupa jpeg, png, jpg',
             'harga.required' => 'Harga harus diisi',
             'harga.integer' => 'Harga harus berupa angka',
-            'stock.required' => 'Stock harus diisi',
-            'stock.integer' => 'Stock harus berupa angka',
             'status.required' => 'Status harus diisi',
             'status.string' => 'Status harus berupa string',
             'kategori.required' => 'Kategori harus diisi',
@@ -89,14 +86,13 @@ class FoodsController extends Controller
         }
 
         $foods->harga = $request->harga;
-        $foods->stock = $request->stock;
         $foods->slug = Str::slug($request->name, '-');
         $foods->status = $request->status;
         $foods->kategori = $request->kategori;
         $foods->save();
 
         return response()->json([
-            'success' => 'Data berhasil ditambahkan',
+            'message' => 'Data berhasil ditambahkan',
         ]);
     }
 
@@ -114,7 +110,6 @@ class FoodsController extends Controller
         $validation = Validator::make($request->all(), [
             'name' => 'required | string',
             'harga' => 'required | integer',
-            'stock' => 'required | integer',
             'status' => 'required | string',
             'kategori' => 'required | string',
         ], [
@@ -122,8 +117,6 @@ class FoodsController extends Controller
             'name.string' => 'Nama harus berupa string',
             'harga.required' => 'Harga harus diisi',
             'harga.integer' => 'Harga harus berupa angka',
-            'stock.required' => 'Stock harus diisi',
-            'stock.integer' => 'Stock harus berupa angka',
             'status.required' => 'Status harus diisi',
             'status.string' => 'Status harus berupa string',
             'kategori.required' => 'Kategori harus diisi',
@@ -151,7 +144,6 @@ class FoodsController extends Controller
         }
 
         $foods->harga = $request->harga;
-        $foods->stock = $request->stock;
         $foods->slug = Str::slug($request->name, '-');
         $foods->status = $request->status;
         $foods->kategori = $request->kategori;

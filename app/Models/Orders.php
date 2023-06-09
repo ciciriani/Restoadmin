@@ -18,6 +18,11 @@ class Orders extends Model
         'total_harga',
     ];
 
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetails::class, 'id_order', 'id');
+    }
+
     public function food()
     {
         return $this->belongsTo(Foods::class, 'id_food', 'id');

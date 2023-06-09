@@ -5,12 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Resto App @yield('title')</title>
+    <!-- jQuery -->
+    <script src="{{ asset('admin template/plugins/jquery/jquery.min.js') }}"></script>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('admin template/plugins/fontawesome-free/css/all.min.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('admin template/dist/css/adminlte.min.css') }}">
     @yield('headerScripts')
@@ -183,8 +187,6 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- jQuery -->
-    <script src="{{ asset('admin template/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('admin template/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->

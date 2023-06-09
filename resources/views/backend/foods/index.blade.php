@@ -45,7 +45,6 @@
                                         <th>Photo</th>
                                         <th>Harga</th>
                                         <th>Stock</th>
-                                        <th>Slug</th>
                                         <th>Status</th>
                                         <th>Kategori</th>
                                         <th>

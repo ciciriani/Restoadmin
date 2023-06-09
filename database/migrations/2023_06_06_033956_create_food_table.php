@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('photo')->nullable();
             $table->integer('harga');
-            $table->integer('stock');
             $table->string('slug');
             $table->enum('status', ['Tersedia', 'Tidak Tersedia'])->default('Tersedia');
             $table->enum('kategori', ['makanan', 'minuman', 'cemilan']);
@@ -29,9 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('foods', function (Blueprint $table) {
-            $table->dropForeign(['id_category']);
-        });
-        Schema::dropIfExists('foods');
+        Schema::dropIfExists('food');
     }
 };

@@ -30,10 +30,9 @@
               
               <div class="col-md-12 col-sm-12">
                   <div class="form-group">
-                      <label for="roles">Roles</label>
-                      <select name="roles" class="custom-select">
+                      <label for="roles">Roles</label> <span style="color: #888">*Hanya sebagai admin</span>
+                      <select name="roles" class="custom-select" disabled>
                           <option value="admin">Admin</option>
-                          <option value="petugas">Petugas</option>
                       </select>
                       <span class="text-danger error-text roles_error"></span>
                   </div>
