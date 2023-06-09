@@ -26,9 +26,9 @@ with font-awesome or any other icon font library -->
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('category') }}" class="nav-link {{ request()->is('category') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-address-book"></i>
-                        <p>Kategori</p>
+                    <a href="{{ route('foods') }}" class="nav-link {{ request()->is('foods') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-pot-food"></i>
+                        <p>Foods</p>
                     </a>
                 </li>
             </ul>

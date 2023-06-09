@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FoodsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -16,29 +17,19 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// Ini halaman pertama yang diakses, masuk ke login karna ini halaman admin
 Route::get('/', function () {
     return redirect()->route('login.index');
 });
+
+// Ini middleware auth ngejaga kalo belum login gabakal bisa masuk ke halaman itu
 
 Route::middleware('auth')->controller(DashboardController::class)->group(function () {
     Route::get('dashboard', 'index')->name('dashboard.index');
 });
 
-Route::middleware('auth')->controller(CategoryController::class)->group(function () {
-    Route::get('category', 'index')->name('category');
-    Route::get('fetchCategory', 'fetchCategory')->name('category.fetch');
-    Route::post('category', 'store')->name('category.store');
-    Route::get('category/edit', 'edit')->name('category.edit');
-    Route::post('category/edit', 'update')->name('category.update');
-    Route::post('category/destroy', 'destroy')->name('category.destroy');
-    Route::post('category/destroy/selected', 'destroySelected')->name('category.destroySelected');
-    Route::get('category/trash', 'trash')->name('category.trash');
-    Route::get('category/fetchTrash', 'fetchTrash')->name('category.fetchTrash');
-    Route::post('category/restore', 'restore')->name('category.restore');
-    Route::post('category/destroy/selectedTrash', 'destroySelectedTrash')->name('category.destroySelectedTrash');
-});
 
+// Ini buat routes user
 Route::middleware('auth')->controller(UserController::class)->group(function () {
     Route::get('user', 'index')->name('user');
     Route::get('fetchUser', 'fetchUser')->name('user.fetch');
@@ -47,6 +38,16 @@ Route::middleware('auth')->controller(UserController::class)->group(function () 
     Route::post('user/edit', 'update')->name('user.update');
     Route::post('user/destroy', 'destroy')->name('user.destroy');
     Route::post('user/destroy/selected', 'destroySelected')->name('user.destroySelected');
+});
+
+Route::middleware('auth')->controller(FoodsController::class)->group(function () {
+    Route::get('foods', 'index')->name('foods');
+    Route::post('foods', 'store')->name('foods.store');
+    Route::get('foods/edit', 'edit')->name('foods.edit');
+    Route::post('foods/edit', 'update')->name('foods.update');
+    Route::get('fetchFoods', 'fetchFoods')->name('foods.fetch');
+    Route::post('foods/destroy', 'destroy')->name('foods.destroy');
+    Route::post('foods/destroy/selected', 'destroySelected')->name('foods.destroySelected');
 });
 
 
@@ -58,6 +59,7 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 //route error
+// Kalo bukan admin gabakal bisa akses
 Route::get('403', function () {
     return view('errors.403');
 })->name('error.403');

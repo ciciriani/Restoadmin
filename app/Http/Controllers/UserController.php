@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    // Ini kontroller user, isinya yang berhubungan dengan halaman user, dibaca aja sesuai namanya, fetch itu artinya ngedapetin data
     public function index()
     {
         return view('backend.user.index');
@@ -66,7 +67,7 @@ class UserController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
-            $user->roles = $request->role;
+            $user->roles = $request->roles;
             $user->save();
 
             return response()->json([

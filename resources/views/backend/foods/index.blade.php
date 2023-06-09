@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('title')
-    Kategori
+    Foods
 @endsection
 
 @section('headerScripts')
@@ -14,11 +14,11 @@
 @endsection
 
 @section('heading') 
-    Halaman Kategori
+    Halaman Foods
 @endsection
 
 @section('subHeading') 
-    Kategori
+    Foods
 @endsection
 
 @section('content')
@@ -27,26 +27,14 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row mb-3">
-                        <div class="col-md-6">
-                            <ul class="nav nav-pills mb-2">
-                                <li class="nav-item">
-                                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addModalCategory">
-                                        <span class="fas fa-plus"></span>
-                                        Tambah Kategori
-                                    </button>
-                                </li>
-                                <li class="nav-item">
-                                  <a class="nav-link " href="{{ route('category.trash') }}">
-                                    <span class="fas fa-trash"></span>
-                                    Sampah
-                                  </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addModalFoods">
+                            <span class="fas fa-plus"></span>
+                            Tambah Kategori
+                        </button>
                     </div>
                     <div class="row">
                         <div class="col md-12 col-sm-12 table-responsive">
-                            <table id="tableCategory" class="table table-bordered">
+                            <table id="tableFoods" class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>
@@ -54,7 +42,12 @@
                                         </th>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Photo</th>
+                                        <th>Harga</th>
+                                        <th>Stock</th>
                                         <th>Slug</th>
+                                        <th>Status</th>
+                                        <th>Kategori</th>
                                         <th>
                                             Action <br>
                                             <button class="btn btn-danger btn-sm" id="delAllBtn" type="submit">
@@ -74,8 +67,8 @@
         </div>
     </div>
 
-    @include('backend.category.addModalCategory')
-    @include('backend.category.editModalCategory')
+    @include('backend.foods.addModalFoods')
+    @include('backend.foods.editModalFoods')
 @endsection
 
 @section('footerScripts')
@@ -84,7 +77,7 @@
     <script src="{{ asset('datatable/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('datatable/dataTables.bootstrap4.min.js') }}"></script>
 
-    @include('backend.category.scripts')
+    @include('backend.foods.scripts')
 
 
 @endsection

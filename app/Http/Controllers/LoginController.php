@@ -11,6 +11,8 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+
+
     public function store(Request $request)
     {
         if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) {

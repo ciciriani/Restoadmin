@@ -78,15 +78,10 @@
                             $('#addFormUser').find('span.'+prefix+'_error').text(value[0]);
                         })
                     } else {
+                        $('#tableUser').DataTable().ajax.reload(null, false);
                         $("#addModalUser").modal('hide');
                         $('#addFormUser')[0].reset();
-                        $('#tableUser').DataTable().ajax.reload(null, false);
-                        Swal.fire({
-                            title: 'Sukses!',
-                            text: response.message,
-                            icon: 'success',
-                            confirmButtonText: 'Ok'
-                        })
+                        alert(response.message);
                     }
                 },
             })
@@ -128,15 +123,10 @@
                             $('#editFormUser').find('span.'+prefix+'_error_edit').text(value[0]);
                         })
                     } else {
+                        $('#tableUser').DataTable().ajax.reload(null, false);
                         $("#editModalUser").modal('hide');
                         $('#editFormUser')[0].reset();
-                        $('#tableUser').DataTable().ajax.reload(null, false);
-                        Swal.fire({
-                            title: 'Sukses!',
-                            text: response.message,
-                            icon: 'success',
-                            confirmButtonText: 'Ok'
-                        })
+                        alert(response.message);
                     }
                 },
             })
