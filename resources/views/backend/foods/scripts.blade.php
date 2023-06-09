@@ -178,5 +178,36 @@
                 })
             }
         })
+        
+
+        function toggleDelAllBtn () {
+            if($('input[name="food_checkbox"]:checked').length > 0) {
+                $('#delAllBtn').text('Hapus ('+$('input[name="food_checkbox"]:checked').length+')').removeClass('d-none');
+            } else {
+                $('#delAllBtn').addClass('d-none');
+            }
+        }
+
+        $(document).on('click', '#main_checkbox', function() {
+            if(this.checked) {
+                $('input[name="food_checkbox"]').each(function() {
+                    this.checked = true;
+                });
+            } else {
+                $('input[name="food_checkbox"]').each(function() {
+                    this.checked = false;
+                });
+            }
+            toggleDelAllBtn();
+        })
+
+        $(document).on('click', '#food_checkbox', function() {
+            if($('input[name="food_checkbox"]:checked').length == $('input[name="food_checkbox"]').length) {
+                $('#main_checkbox').prop("checked", true);
+            } else {
+                $('#main_checkbox').prop("checked", false);
+            }
+            toggleDelAllBtn();
+        })
     })
 </script>
