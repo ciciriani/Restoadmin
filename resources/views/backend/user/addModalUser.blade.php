@@ -32,7 +32,7 @@
                   <div class="form-group">
                       <label for="roles">Roles</label> <span style="color: #888">*Hanya sebagai admin</span>
                       <select name="roles" class="custom-select" disabled>
-                          <option value="admin">Admin</option>
+                          <option value="admin" selected>Admin</option>
                       </select>
                       <span class="text-danger error-text roles_error"></span>
                   </div>

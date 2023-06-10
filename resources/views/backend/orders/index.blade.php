@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="{{ asset('datatable/dataTables.bootstrap4.min.css') }}">
 @endsection
 
-@section('heading') 
+@section('heading')
     History Order
 @endsection
 
-@section('subHeading') 
+@section('subHeading')
     Order
 @endsection
 
@@ -31,6 +31,9 @@
                             <span class="fas fa-plus"></span>
                             Tambah Order
                         </button>
+                    </div>
+                    <div class="col mb-3 text-right">
+                        <button class="btn btn-danger" onclick="window.print()">PDF</button>
                     </div>
                     <div class="row">
                         <div class="col md-12 col-sm-12 table-responsive">
@@ -92,7 +95,6 @@
 @endsection
 
 @section('footerScripts')
-
     @include('backend.orders.scripts')
     <!-- js sweetalert-->
     <script src="{{ asset('sweetalert/src/sweetalert2.js') }}"></script>
@@ -106,6 +108,4 @@
             });
         });
     </script>
-
-
 @endsection

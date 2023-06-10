@@ -46,14 +46,12 @@ class UserController extends Controller
             'name' => 'required | string',
             'email' => 'required | email',
             'password' => 'required | string',
-            'roles' => 'required',
         ], [
             'name.required' => 'Nama tidak boleh kosong',
             'email.required' => 'Email tidak boleh kosong',
             'email.email' => 'Email tidak valid',
             'password.required' => 'Password tidak boleh kosong',
             'password.string' => 'Password harus berupa string',
-            'roles.required' => 'Role tidak boleh kosong',
         ]);
 
 
@@ -66,8 +64,8 @@ class UserController extends Controller
             $user = new User();
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->roles = 'admin';
             $user->password = bcrypt($request->password);
-            $user->roles = $request->roles;
             $user->save();
 
             return response()->json([
